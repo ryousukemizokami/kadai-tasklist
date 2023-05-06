@@ -1,0 +1,32 @@
+# fly.toml app configuration file generated for small-frost-2279 on 2023-05-05T05:27:36Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "small-frost-2279"
+primary_region = "nrt"
+
+[build]
+  [build.args]
+    NODE_VERSION = "18"
+    PHP_VERSION = "8.1"
+
+[env]
+  APP_ENV = "production"
+  LOG_CHANNEL = "stderr"
+  LOG_LEVEL = "info"
+  LOG_STDERR_FORMATTER = "Monolog\\Formatter\\JsonFormatter"
+  APP_URL="https://small-frost-2279.fly.dev"
+  APP_NAME="tasklist"
+  APP_DEBUG=false
+  DB_CONNECTION="pgsql"
+  DB_HOST="db.wuwffukcawnoxdhznvsk.supabase.co"
+  DB_PORT=5432
+  DB_DATABASE="postgres"
+  DB_USERNAME="postgres"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
